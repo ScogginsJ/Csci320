@@ -1,0 +1,200 @@
+mysql> select first_name, last_name, check_in_time, check_out_time from visit where check_out_time is not NULl and last_name = 'Davis';
++------------+-----------+---------------------+---------------------+
+| first_name | last_name | check_in_time       | check_out_time      |
++------------+-----------+---------------------+---------------------+
+| Debbie     | Davis     | 2016-08-30 16:36:56 | 2016-08-30 17:57:47 |
+| Debbie     | Davis     | 2016-08-31 13:36:36 | 2016-08-31 14:47:44 |
++------------+-----------+---------------------+---------------------+
+2 rows in set (0.00 sec)
+
+mysql> select first_name, last_name, check_in_time, check_out_time from visit where check_out_time is not NULl and last_name = 'Davis' or last_name = 'Cadillac';
++------------+-----------+---------------------+---------------------+
+| first_name | last_name | check_in_time       | check_out_time      |
++------------+-----------+---------------------+---------------------+
+| Charlie    | Cadillac  | 2016-08-30 14:55:55 | 2016-08-30 16:53:44 |
+| Debbie     | Davis     | 2016-08-30 16:36:56 | 2016-08-30 17:57:47 |
+| Charlie    | Cadillac  | 2016-08-31 11:51:15 | 2016-08-31 11:53:44 |
+| Debbie     | Davis     | 2016-08-31 13:36:36 | 2016-08-31 14:47:44 |
++------------+-----------+---------------------+---------------------+
+4 rows in set (0.00 sec)
+
+mysql> select first_name, last_name, check_in_time, check_out_time from visit where check_out_time is not NULl and last_name = 'Davis' or last_name = 'Cadillac'
+    -> from visit
+    -> NULL and last_name = 'Davis' or last_name = 'Cadillac'
+    -> order by last_name
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'from visit
+NULL and last_name = 'Davis' or last_name = 'Cadillac'
+order by last_' at line 2
+mysql> select first_name, last_name, check_in_time, check_out_time from visit where check_out_time is not NULl and last_name = 'Davis' or last_name = 'Cadillac'
+    -> order by last_name;
++------------+-----------+---------------------+---------------------+
+| first_name | last_name | check_in_time       | check_out_time      |
++------------+-----------+---------------------+---------------------+
+| Charlie    | Cadillac  | 2016-08-30 14:55:55 | 2016-08-30 16:53:44 |
+| Charlie    | Cadillac  | 2016-08-31 11:51:15 | 2016-08-31 11:53:44 |
+| Debbie     | Davis     | 2016-08-30 16:36:56 | 2016-08-30 17:57:47 |
+| Debbie     | Davis     | 2016-08-31 13:36:36 | 2016-08-31 14:47:44 |
++------------+-----------+---------------------+---------------------+
+4 rows in set (0.00 sec)
+
+mysql> select first_name, last_name, check_in_time, check_out_time from visit where check_out_time is not NULl and last_name = 'Davis' or last_name = 'Cadillac'
+    -> order by check_in_time
+    -> ;
++------------+-----------+---------------------+---------------------+
+| first_name | last_name | check_in_time       | check_out_time      |
++------------+-----------+---------------------+---------------------+
+| Charlie    | Cadillac  | 2016-08-30 14:55:55 | 2016-08-30 16:53:44 |
+| Debbie     | Davis     | 2016-08-30 16:36:56 | 2016-08-30 17:57:47 |
+| Charlie    | Cadillac  | 2016-08-31 11:51:15 | 2016-08-31 11:53:44 |
+| Debbie     | Davis     | 2016-08-31 13:36:36 | 2016-08-31 14:47:44 |
++------------+-----------+---------------------+---------------------+
+4 rows in set (0.00 sec)
+
+mysql> select location
+    -> ;
+ERROR 1054 (42S22): Unknown column 'location' in 'field list'
+mysql> select location from visit;
++----------------+
+| location       |
++----------------+
+| Albert Hall    |
+| Albert Hall    |
+| Albert Hall    |
+| Albert Hall    |
+| Albert Hall    |
+| Albert Hall    |
+| Albert Hall    |
+| Albert Hall    |
+| Albert Hall    |
+| Albert Hall    |
+| Albert Hall    |
+| Writing center |
+| Albert Hall    |
+| Albert Hall    |
++----------------+
+14 rows in set (0.00 sec)
+
+mysql> select location from visit
+    -> order by location;
++----------------+
+| location       |
++----------------+
+| Albert Hall    |
+| Albert Hall    |
+| Albert Hall    |
+| Albert Hall    |
+| Albert Hall    |
+| Albert Hall    |
+| Albert Hall    |
+| Albert Hall    |
+| Albert Hall    |
+| Albert Hall    |
+| Albert Hall    |
+| Albert Hall    |
+| Albert Hall    |
+| Writing center |
++----------------+
+14 rows in set (0.00 sec)
+
+mysql> select distinct location from visit
+    -> ;
++----------------+
+| location       |
++----------------+
+| Albert Hall    |
+| Writing center |
++----------------+
+2 rows in set (0.00 sec)
+
+mysql> select sports from visit
+    -> ;
++--------------------------+
+| sports                   |
++--------------------------+
+| NULL                     |
+| Men's soccer, Baseball   |
+| NULL                     |
+| NULL                     |
+| Women's soccer, Softball |
+| Men's golf               |
+| Baseball                 |
+| NULL                     |
+| NULL                     |
+| NULL                     |
+| Men's soccer, Baseball   |
+| Women's soccer, Softball |
+| NULL                     |
+| Women's soccer, Softball |
++--------------------------+
+14 rows in set (0.01 sec)
+
+mysql> select sports from visit where sports is not NULL;
++--------------------------+
+| sports                   |
++--------------------------+
+| Men's soccer, Baseball   |
+| Women's soccer, Softball |
+| Men's golf               |
+| Baseball                 |
+| Men's soccer, Baseball   |
+| Women's soccer, Softball |
+| Women's soccer, Softball |
++--------------------------+
+7 rows in set (0.00 sec)
+
+mysql> select sports from visit where sports is not NULL
+    -> order by sports
+    -> ;
++--------------------------+
+| sports                   |
++--------------------------+
+| Baseball                 |
+| Men's golf               |
+| Men's soccer, Baseball   |
+| Men's soccer, Baseball   |
+| Women's soccer, Softball |
+| Women's soccer, Softball |
+| Women's soccer, Softball |
++--------------------------+
+7 rows in set (0.00 sec)
+
+mysql> select distinct sports from visit where sports is not NULL order by sports;
++--------------------------+
+| sports                   |
++--------------------------+
+| Baseball                 |
+| Men's golf               |
+| Men's soccer, Baseball   |
+| Women's soccer, Softball |
++--------------------------+
+4 rows in set (0.00 sec)
+
+the issue here is that they can play more than one sport and that filter to remove repeats will only remove repeats if both match,
+
+mysql> select distinct majors from visit where sports is not NULL order by majors;
++------------------------------+
+| majors                       |
++------------------------------+
+| Biology                      |
+| Computer Science, Philosophy |
+| English                      |
+| Philosophy and English       |
++------------------------------+
+4 rows in set (0.00 sec)
+
+this has the same issue as the sports category.
+mysql> select distinct majors from visit where majors is not NULL order by majors;
++------------------------------+
+| majors                       |
++------------------------------+
+| Biology                      |
+| Chemistry                    |
+| Computer Science             |
+| Computer Science, Math       |
+| Computer Science, Philosophy |
+| English                      |
+| English, Philosophy          |
+| Undecided                    |
++------------------------------+
+8 rows in set (0.00 sec)

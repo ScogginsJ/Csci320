@@ -1,0 +1,142 @@
+mysql> update visit set academic_rank = 'Senior' where academic_rank = 'Junior';
+Query OK, 3 rows affected (0.04 sec)
+Rows matched: 3  Changed: 3  Warnings: 0
+
+mysql> update visit set academic_rank = 'Junior' where academic_rank = 'Sophomore';
+Query OK, 4 rows affected (0.04 sec)
+Rows matched: 4  Changed: 4  Warnings: 0
+
+mysql> update visit set academic_rank = 'Sophomore' where academic_rank = 'Freshman';
+Query OK, 5 rows affected (0.04 sec)
+Rows matched: 5  Changed: 5  Warnings: 0
+
+mysql> update visit set majors = 'Philosophy, English' where majors = 'Philosophy and English';
+Query OK, 3 rows affected (0.04 sec)
+Rows matched: 3  Changed: 3  Warnings: 0
+
+mysql> update visit set majors = 'English, Philosophy' where majors = 'Philosophy, English';
+Query OK, 3 rows affected (0.04 sec)
+Rows matched: 3  Changed: 3  Warnings: 0
+
+mysql> update visit set majors = 'Computer Science, Math' where majors = 'Math, Comp Sci';
+Query OK, 2 rows affected (0.04 sec)
+Rows matched: 2  Changed: 2  Warnings: 0
+
+mysql> select majors from visit
+    -> ;
++------------------------------+
+| majors                       |
++------------------------------+
+| Computer Science, Math       |
+| English                      |
+| Chemistry                    |
+| Computer Science             |
+| English, Philosophy          |
+| Computer Science, Philosophy |
+| Biology                      |
+| Chemistry                    |
+| Undecided                    |
+| Undecided                    |
+| English                      |
+| English, Philosophy          |
+| Computer Science, Math       |
+| English, Philosophy          |
++------------------------------+
+14 rows in set (0.00 sec)
+
+mysql> select sports from visit;
++--------------------------+
+| sports                   |
++--------------------------+
+| NULL                     |
+| Men's soccer, Baseball   |
+| NULL                     |
+| NULL                     |
+| Women's soccer, Softball |
+| Men's golf               |
+| Baseball                 |
+| NULL                     |
+| NULL                     |
+| NULL                     |
+| Men's soccer, Baseball   |
+| Women's soccer, Softball |
+| NULL                     |
+| Women's soccer, Softball |
++--------------------------+
+14 rows in set (0.00 sec)
+
+mysql> update visit set sports = 'Baseball, Men's Soccer' where sports = 'Men's soccer, Baseball';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 's Soccer' where sports = 'Men's soccer, Baseball'' at line 1
+mysql> update visit set sports = 'Baseball, Men's Soccer'' where sports = 'Men's soccer, Baseball'';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 's Soccer'' where sports = 'Men's soccer, Baseball''' at line 1
+mysql> update visit set sports = "Baseball, Men's Soccer'" where sports = "Men's soccer, Baseball";
+Query OK, 2 rows affected (0.04 sec)
+Rows matched: 2  Changed: 2  Warnings: 0
+
+mysql> update visit set sports = "Softball, Women's Soccer'" where sports = "Women's soccer, Softball";
+Query OK, 3 rows affected (0.08 sec)
+Rows matched: 3  Changed: 3  Warnings: 0
+
+mysql> select sports from visit;
++---------------------------+
+| sports                    |
++---------------------------+
+| NULL                      |
+| Baseball, Men's Soccer'   |
+| NULL                      |
+| NULL                      |
+| Softball, Women's Soccer' |
+| Men's golf                |
+| Baseball                  |
+| NULL                      |
+| NULL                      |
+| NULL                      |
+| Baseball, Men's Soccer'   |
+| Softball, Women's Soccer' |
+| NULL                      |
+| Softball, Women's Soccer' |
++---------------------------+
+14 rows in set (0.00 sec)
+
+mysql> update visit set sports = "Softball, Women's Soccer" where sports = "Softball, Women's Soccer";
+Query OK, 0 rows affected (0.01 sec)
+Rows matched: 0  Changed: 0  Warnings: 0
+
+mysql> update visit set sports = "Softball, Women's Soccer" where sports = "Softball, Women's Soccer'";
+Query OK, 3 rows affected (0.04 sec)
+Rows matched: 3  Changed: 3  Warnings: 0
+
+mysql> update visit set sports = "Baseball, Men's Soccer" where sports = "Baseball, Men's Soccer'";
+Query OK, 2 rows affected (0.03 sec)
+Rows matched: 2  Changed: 2  Warnings: 0
+
+mysql> select sports from visit;\
++--------------------------+
+| sports                   |
++--------------------------+
+| NULL                     |
+| Baseball, Men's Soccer   |
+| NULL                     |
+| NULL                     |
+| Softball, Women's Soccer |
+| Men's golf               |
+| Baseball                 |
+| NULL                     |
+| NULL                     |
+| NULL                     |
+| Baseball, Men's Soccer   |
+| Softball, Women's Soccer |
+| NULL                     |
+| Softball, Women's Soccer |
++--------------------------+
+14 rows in set (0.00 sec)
+
+mysql> no tee
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'no tee' at line 1
+mysql> noteee
+    -> notee
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'noteee
+notee' at line 1
+mysql> notee
