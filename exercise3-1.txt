@@ -1,0 +1,128 @@
+mysql> notee
+mysql> insert into visit
+    -> (first_name, last_name, emai, academic_rank, residential_status, location, purpose)
+    -> values
+    -> ('Bob', 'Booth', 'bbooth@dewv.net', 'Junior', 'On campus', 'SC102', 'practice my SQL');
+ERROR 1054 (42S22): Unknown column 'emai' in 'field list'
+mysql> insert into visit
+    -> (first_name, last_name, email, academic_rank, residential_status, location, purpose)
+    -> values
+    -> ('Bob', 'Booth', 'bbooth@dewv.net', 'Junior', 'On campus', 'SC102', 'practice my SQL');
+Query OK, 1 row affected (0.03 sec)
+
+mysql> select * from visit where first_name = 'Bob' \G;
+*************************** 1. row ***************************
+               first_name: Bob
+                last_name: Booth
+                    email: bbooth@dewv.net
+            academic_rank: Junior
+       residential_status: On campus
+                   majors: Computer Science, Philosophy
+                   sports: Men's golf
+slp_instructor_first_name: NULL
+ slp_instructor_last_name: NULL
+            check_in_time: 2016-08-30 16:44:54
+           check_out_time: 2016-08-30 16:53:44
+                 location: Albert Hall
+                  purpose: study hall
+         purpose_achieved: Y
+                 tutoring: NULL
+                 comments: New year, fresh start!
+*************************** 2. row ***************************
+               first_name: Bob
+                last_name: Booth
+                    email: bbooth@dewv.net
+            academic_rank: Junior
+       residential_status: On campus
+                   majors: NULL
+                   sports: NULL
+slp_instructor_first_name: NULL
+ slp_instructor_last_name: NULL
+            check_in_time: 2020-09-16 09:22:32
+           check_out_time: NULL
+                 location: SC102
+                  purpose: practice my SQL
+         purpose_achieved: NULL
+                 tutoring: NULL
+                 comments: NULL
+2 rows in set (0.00 sec)
+
+ERROR: 
+No query specified
+
+mysql> select * from visit where first_name = 'Bob' and check_out_time is NULL \G;
+*************************** 1. row ***************************
+               first_name: Bob
+                last_name: Booth
+                    email: bbooth@dewv.net
+            academic_rank: Junior
+       residential_status: On campus
+                   majors: NULL
+                   sports: NULL
+slp_instructor_first_name: NULL
+ slp_instructor_last_name: NULL
+            check_in_time: 2020-09-16 09:22:32
+           check_out_time: NULL
+                 location: SC102
+                  purpose: practice my SQL
+         purpose_achieved: NULL
+                 tutoring: NULL
+                 comments: NULL
+1 row in set (0.00 sec)
+
+ERROR: 
+No query specified
+
+mysql> insert into visit (first_name, last_name, email, academic_rank, residential_status, location, purpose) values ('Steve', 'Jobs', 'sjobs@dewv.net', 'Freshman', 'On campus', 'Albert Hall', 'Make Apple');
+Query OK, 1 row affected (0.03 sec)
+
+mysql> select * from visit where first_name = 'Steve' \G;
+*************************** 1. row ***************************
+               first_name: Steve
+                last_name: Jobs
+                    email: sjobs@dewv.net
+            academic_rank: Freshman
+       residential_status: On campus
+                   majors: NULL
+                   sports: NULL
+slp_instructor_first_name: NULL
+ slp_instructor_last_name: NULL
+            check_in_time: 2020-09-16 09:29:21
+           check_out_time: NULL
+                 location: Albert Hall
+                  purpose: Make Apple
+         purpose_achieved: NULL
+                 tutoring: NULL
+                 comments: NULL
+1 row in set (0.00 sec)
+
+ERROR: 
+No query specified
+
+mysql> insert into visit (first_name, last_name, email, academic_rank, residential_status, location, purpose) values ('Bill', 'Gates', 'bgates@dewv.net', 'Senior', 'On campus', 'Albert Hall', 'Make Microsoft');
+Query OK, 1 row affected (0.20 sec)
+
+mysql> select * from visit where last_name = 'Gates' \G;
+*************************** 1. row ***************************
+               first_name: Bill
+                last_name: Gates
+                    email: bgates@dewv.net
+            academic_rank: Senior
+       residential_status: On campus
+                   majors: NULL
+                   sports: NULL
+slp_instructor_first_name: NULL
+ slp_instructor_last_name: NULL
+            check_in_time: 2020-09-16 09:30:53
+           check_out_time: NULL
+                 location: Albert Hall
+                  purpose: Make Microsoft
+         purpose_achieved: NULL
+                 tutoring: NULL
+                 comments: NULL
+1 row in set (0.00 sec)
+
+ERROR: 
+No query specified
+
+mysql> notee

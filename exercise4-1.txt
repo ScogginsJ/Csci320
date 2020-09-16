@@ -1,0 +1,47 @@
+mysql> notee
+mysql> delete from visit where purpose = 'practice my SQL';
+Query OK, 1 row affected (0.03 sec)
+
+mysql> select * from visit where first_name = 'Bob' \G;
+*************************** 1. row ***************************
+               first_name: Bob
+                last_name: Booth
+                    email: bbooth@dewv.net
+            academic_rank: Junior
+       residential_status: On campus
+                   majors: Computer Science, Philosophy
+                   sports: Men's golf
+slp_instructor_first_name: NULL
+ slp_instructor_last_name: NULL
+            check_in_time: 2016-08-30 16:44:54
+           check_out_time: 2016-08-30 16:53:44
+                 location: Albert Hall
+                  purpose: study hall
+         purpose_achieved: Y
+                 tutoring: NULL
+                 comments: New year, fresh start!
+1 row in set (0.01 sec)
+
+ERROR: 
+No query specified
+
+mysql> delete from visit where last_name = 'Gates' or 'Jobs';
+ERROR 1292 (22007): Truncated incorrect DOUBLE value: 'Jobs'
+mysql> delete from visit where last_name = ('Gates', 'Jobs');
+ERROR 1241 (21000): Operand should contain 1 column(s)
+mysql> delete from visit where last_name = 'Gates' or last_name = 'Jobs';
+Query OK, 2 rows affected (0.10 sec)
+
+mysql> select * from visit where last_name = 'Jobs' or last_name = 'Gates' \G;
+Empty set (0.00 sec)
+
+ERROR: 
+No query specified
+
+mysql> select * from visit where last_name = 'Jobs' \G;
+Empty set (0.00 sec)
+
+ERROR: 
+No query specified
+
+mysql> notee
