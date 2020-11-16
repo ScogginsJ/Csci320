@@ -1,0 +1,290 @@
+mysql> insert into student_sport(email, sport_name, gender) values
+    -> ('bgates@dewv.net', 'Basketball', 'Chess');
+Query OK, 1 row affected (0.03 sec)
+
+mysql> insert into student_sport(email, sport_name, gender) values ('bgates@dewv.net', 'Basketball', 'Chess Mester');
+ERROR 1406 (22001): Data too long for column 'gender' at row 1
+mysql> insert into student_sport(email, sport_name, gender) values ('bgates@dewv.net', 'Football', 'Chess Mester');
+ERROR 1406 (22001): Data too long for column 'gender' at row 1
+mysql> insert into student_sport(email, sport_name, gender) values ('bgates@dewv.net', 'Football', 'Male');
+Query OK, 1 row affected (0.03 sec)
+
+mysql> select * from student_sport
+    -> ;
++--------------------+------------+--------+
+| email              | sport_name | gender |
++--------------------+------------+--------+
+| bbooth@dewv.net    | Golf       | Men    |
+| bgates@dewv.net    | Basketball | Chess  |
+| bgates@dewv.net    | Football   | Male   |
+| ccadillac@dewv.net | Baseball   | Men    |
+| ccadillac@dewv.net | Soccer     | Men    |
+| ddavis@dewv.net    | Soccer     | Women  |
+| ddavis@dewv.net    | Softball   | Women  |
+| eelkins@dewv.net   | Baseball   | Men    |
++--------------------+------------+--------+
+8 rows in set (0.00 sec)
+
+mysql> inersert into sport(name, gender, season) values
+    -> ('Beach Volleyball', 'Summer', 'Female');
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'inersert into sport(name, gender, season) values
+('Beach Volleyball', 'Summer', ' at line 1
+mysql> insert into major(name) values
+    -> ('Professional Athlete Party Hosting Skills');
+ERROR 1406 (22001): Data too long for column 'name' at row 1
+mysql> update sport set name = 'playing with numbers in daycare' where name = 'Math'
+    -> ;
+Query OK, 0 rows affected (0.00 sec)
+Rows matched: 0  Changed: 0  Warnings: 0
+
+mysql> update sport set major = 'playing with numbers in daycare' where major = 'Math'
+    -> ;
+ERROR 1054 (42S22): Unknown column 'major' in 'where clause'
+mysql> select * from major
+    -> ;
++-------------------------------+
+| name                          |
++-------------------------------+
+| Accounting                    |
+| Adventure Recreation          |
+| Appalachian Studies           |
+| Art                           |
+| Biology                       |
+| Business                      |
+| Chemistry                     |
+| Child and Family Studies      |
+| Computer Science              |
+| Criminal Justice              |
+| Criminology                   |
+| Design and Technical Theatre  |
+| Early Childhood Education     |
+| Economics                     |
+| Education                     |
+| English                       |
+| Environmental Science         |
+| Exercise Science              |
+| Finance                       |
+| History                       |
+| Hospitality Management        |
+| Management                    |
+| Marketing                     |
+| Math                          |
+| Music                         |
+| Nursing                       |
+| Philosophy                    |
+| Physical Education            |
+| Political Science             |
+| Pre-Dental                    |
+| Pre-Law                       |
+| Pre-Medical                   |
+| Pre-Ministerial               |
+| Pre-Pharmacy                  |
+| Pre-Physical Therapy          |
+| Pre-Veterinary                |
+| Psychology and Human Services |
+| Religion and Philosophy       |
+| Sociology                     |
+| Sport Management              |
+| Sustainability Studies        |
+| Theatre Arts                  |
+| Undecided                     |
++-------------------------------+
+43 rows in set (0.01 sec)
+
+mysql> update major set name = 'playing with numbers in daycare' where name = 'Math'
+    -> ;
+ERROR 1406 (22001): Data too long for column 'name' at row 1
+mysql> update sport set name = 'playing with numbers in daycare' where name = 'Golf'
+    -> ;
+ERROR 1406 (22001): Data too long for column 'name' at row 1
+mysql> select distinct first_name, last_name, major, from vist;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'from vist' at line 1
+mysql> select distinct first_name, last_name, major, from vist order by last_name, first_name;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'from vist order by last_name, first_name' at line 1
+mysql> select distinct first_name, last_name, major from vist order by last_name, first_name;
+ERROR 1146 (42S02): Table 'learning_center.vist' doesn't exist
+mysql> select distinct first_name, last_name, major from visit order by last_name, first_name;
+ERROR 1054 (42S22): Unknown column 'major' in 'field list'
+mysql> select distinct first_name, last_name, majors from visit order by last_name, first_name;
++------------+-----------+------------------------------+
+| first_name | last_name | majors                       |
++------------+-----------+------------------------------+
+| Alice      | Albert    | Computer Science             |
+| Bob        | Booth     | Computer Science, Philosophy |
+| Charlie    | Cadillac  | English                      |
+| Debbie     | Davis     | English, Philosophy          |
+| Eric       | Elkins    | Biology                      |
+| Frank      | Forest    | Undecided                    |
+| Gary       | Gatehouse | Computer Science, Math       |
+| Hannah     | Hermanson | Chemistry                    |
+| Irving     | Icehouse  | Chemistry                    |
++------------+-----------+------------------------------+
+9 rows in set (0.00 sec)
+
+mysql> create table student_major (
+    -> email varchar(128) NOT NULL,
+    -> major_name varchar(29) NOT NULL,
+    -> constraint primary key(email, major_name)
+    -> );
+Query OK, 0 rows affected (0.19 sec)
+
+mysql> select distinct first_name, last_name, majors, email from visit order by last_name, first_name;
++------------+-----------+------------------------------+---------------------+
+| first_name | last_name | majors                       | email               |
++------------+-----------+------------------------------+---------------------+
+| Alice      | Albert    | Computer Science             | aalbert@dewv.net    |
+| Bob        | Booth     | Computer Science, Philosophy | bbooth@dewv.net     |
+| Charlie    | Cadillac  | English                      | ccadillac@dewv.net  |
+| Debbie     | Davis     | English, Philosophy          | ddavis@dewv.net     |
+| Eric       | Elkins    | Biology                      | eelkins@dewv.net    |
+| Frank      | Forest    | Undecided                    | fforest@dewv.net    |
+| Gary       | Gatehouse | Computer Science, Math       | ggatehouse@dewv.net |
+| Hannah     | Hermanson | Chemistry                    | hhermanson@dewv.net |
+| Irving     | Icehouse  | Chemistry                    | iicehouse@dewv.net  |
++------------+-----------+------------------------------+---------------------+
+9 rows in set (0.00 sec)
+
+mysql> insert into student_major(email, major_name) values 
+    -> ('ccadillac@dewv.net', 'English'),
+    -> ('aalbert@dewv.net', 'Computer Science'),
+    -> ('eelkins@dewv.net', 'Biology'),
+    -> ('ddavis@dewv.net', 'English'),
+    -> ('bbooth@dewv.net', 'Computer Science'),
+    -> ('bbooth@dewv.net', 'Philosophy')
+    -> ('ddavis@dewv.net', 'Philosophy'),
+    -> ('ggatehouse@dewv.net', 'Computer Science'),
+    -> ('ggatehouse@dewv.net', 'Biology'),
+    -> ('hhermanson@dewv.net', 'Chemistry'),
+    -> ('iicehouse@dewv.net', 'Chemistry'),
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '('ddavis@dewv.net', 'Philosophy'),
+('ggatehouse@dewv.net', 'Computer Science'),
+' at line 8
+mysql> insert into student_major(email, major_name) values 
+    -> ('ccadillac@dewv.net', 'English'),
+    -> ('aalbert@dewv.net', 'Computer Science'),
+    -> ('eelkins@dewv.net', 'Biology'),
+    -> ('ddavis@dewv.net', 'English'),
+    -> ('bbooth@dewv.net', 'Computer Science'),
+    -> ('bbooth@dewv.net', 'Philosophy')
+    -> ('ddavis@dewv.net', 'Philosophy'),
+    -> ('ggatehouse@dewv.net', 'Computer Science'),
+    -> ('ggatehouse@dewv.net', 'Biology'),
+    -> ('hhermanson@dewv.net', 'Chemistry'),
+    -> ('iicehouse@dewv.net', 'Chemistry'),
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '('ddavis@dewv.net', 'Philosophy'),
+('ggatehouse@dewv.net', 'Computer Science'),
+' at line 8
+mysql> insert into student_major(email, major_name) values 
+    -> ('ccadillac@dewv.net', 'English'),
+    -> ('aalbert@dewv.net', 'Computer Science'),
+    -> ('eelkins@dewv.net', 'Biology'),
+    -> ('ddavis@dewv.net', 'English'),
+    -> ('bbooth@dewv.net', 'Computer Science'),
+    -> ('bbooth@dewv.net', 'Philosophy'),
+    -> ('ddavis@dewv.net', 'Philosophy'),
+    -> ('ggatehouse@dewv.net', 'Computer Science'),
+    -> ('ggatehouse@dewv.net', 'Biology'),
+    -> ('hhermanson@dewv.net', 'Chemistry'),
+    -> ('iicehouse@dewv.net', 'Chemistry'),
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 12
+mysql> insert into student_major(email, major_name) values  ('ccadillac@dewv.net', 'English'), ('aalbert@dewv.net', 'Computer Science'), ('eelkins@dewv.net', 'Biology'), ('ddavis@dewv.net', 'English'), ('bbooth@dewv.net', 'Computer Science'), ('bbooth@dewv.net', 'Philosophy'), ('ddavis@dewv.net', 'Philosophy'), ('ggatehouse@dewv.net', 'Computer Science'), ('ggatehouse@dewv.net', 'Biology'), ('hhermanson@dewv.net', 'Chemistry'), ('iicehouse@dewv.net', 'Chemistry'),;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+mysql> insert into student_major(email, major_name) values  ('ccadillac@dewv.net', 'English'), ('aalbert@dewv.net', 'Computer Science'), ('eelkins@dewv.net', 'Biology'), ('ddavis@dewv.net', 'English'), ('bbooth@dewv.net', 'Computer Science'), ('bbooth@dewv.net', 'Philosophy'), ('ddavis@dewv.net', 'Philosophy'), ('ggatehouse@dewv.net', 'Computer Science'), ('ggatehouse@dewv.net', 'Biology'), ('hhermanson@dewv.net', 'Chemistry'), ('iicehouse@dewv.net', 'Chemistry'),;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+mysql> insert into student_major(email, major_name) values  ('ccadillac@dewv.net', 'English'), ('aalbert@dewv.net', 'Computer Science'), ('eelkins@dewv.net', 'Biology'), ('ddavis@dewv.net', 'English'), ('bbooth@dewv.net', 'Computer Science'), ('bbooth@dewv.net', 'Philosophy'), ('ddavis@dewv.net', 'Philosophy'), ('ggatehouse@dewv.net', 'Computer Science'), ('ggatehouse@dewv.net', 'Biology'), ('hhermanson@dewv.net', 'Chemistry'),;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+mysql> insert into student_major(email, major_name) values 
+    -> ('ccadillac@dewv.net', 'English'),
+    -> ('aalbert@dewv.net', 'Computer Science'),
+    -> ('eelkins@dewv.net', 'Biology'),
+    -> ('ddavis@dewv.net', 'English'),
+    -> ('bbooth@dewv.net', 'Computer Science'),
+    -> ('bbooth@dewv.net', 'Philosophy'),
+    -> ('ddavis@dewv.net', 'Philosophy'),
+    -> ('ggatehouse@dewv.net', 'Computer Science'),
+    -> ('ggatehouse@dewv.net', 'Biology'),
+    -> ('hhermanson@dewv.net', 'Chemistry'),;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 11
+mysql> ('ccadillac@dewv.net', 'English'),
+    -> ('aalbert@dewv.net', 'Computer Science'),
+    -> ('eelkins@dewv.net', 'Biology'),
+    -> ('ddavis@dewv.net', 'English'),;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''ccadillac@dewv.net', 'English'),
+('aalbert@dewv.net', 'Computer Science'),
+('ee' at line 1
+mysql> insert into student_major(email, major_name) values 
+    -> ('ccadillac@dewv.net', 'English'),
+    -> ('aalbert@dewv.net', 'Computer Science'),
+    -> ('eelkins@dewv.net', 'Biology'),
+    -> ('ddavis@dewv.net', 'English'),
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 5
+mysql> insert into student_major(email, major_name) values 
+    -> ('ccadillac@dewv.net', 'English'),;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 2
+mysql> insert into student_major(email, major_name) values
+    -> ('ccadillac@dewv.net', 'English');
+Query OK, 1 row affected (0.16 sec)
+
+mysql> insert into student_major(email, major_name) values
+    -> ('aalbert@dewv.net', 'Computer Science'),
+    -> ('eelkins@dewv.net', 'Biology'),
+    -> ('ddavis@dewv.net', 'English'),
+    -> ('bbooth@dewv.net', 'Computer Science'),
+    -> ('bbooth@dewv.net', 'Philosophy'),
+    -> ('ddavis@dewv.net', 'Philosophy'),
+    -> ('ggatehouse@dewv.net', 'Computer Science'),
+    -> ('ggatehouse@dewv.net', 'Biology'),
+    -> ('hhermanson@dewv.net', 'Chemistry'),
+    -> ('iicehouse@dewv.net', 'Chemistry'),
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 11
+mysql> insert into student_major(email, major_name) values
+    -> ('aalbert@dewv.net', 'Computer Science'),
+    -> ('bbooth@dewv.net', 'Computer Science'),
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 3
+mysql> insert into student_major(email, major_name) values
+    -> ('aabert@dewv.net', 'Computer Science');
+Query OK, 1 row affected (0.04 sec)
+
+mysql> insert into student_major(email, major_name) values
+    -> ('eelkins@dewv.net', 'Biology');
+Query OK, 1 row affected (0.03 sec)
+
+mysql> insert into student_major(email, major_name) values
+    -> ('ddavis@dewv.net', 'English');
+Query OK, 1 row affected (0.03 sec)
+
+mysql> insert into student_major(email, major_name) values
+    -> ('bbooth@dewv.net', 'Computer Science');
+Query OK, 1 row affected (0.04 sec)
+
+mysql> insert into student_major(email, major_name) values
+    -> ('bbooth@dewv.net', 'Philosophy');
+Query OK, 1 row affected (0.03 sec)
+
+mysql> insert into student_major(email, major_name) values
+    -> ('ddavis@dewv.net', 'Philosophy');
+Query OK, 1 row affected (0.03 sec)
+
+mysql> insert into student_major(email, major_name) values
+    -> ('ggatehouse@dewv.net', 'Computer Science');
+Query OK, 1 row affected (0.03 sec)
+
+mysql> insert into student_major(email, major_name) values
+    -> ('ggatehouse@dewv.net', 'Biology');
+Query OK, 1 row affected (0.05 sec)
+
+mysql> insert into student_major(email, major_name) values
+    -> ('hhermanson@dewv.net', 'Chemistry');
+Query OK, 1 row affected (0.03 sec)
+
+mysql> insert into student_major(email, major_name) values
+    -> ('iicehouse@dewv.net', 'Chemistry');
+Query OK, 1 row affected (0.04 sec)
+
+mysql> notee
