@@ -1,0 +1,2 @@
+For the visit1nf table the functional dependencies are  email address to first and last names,
+and email address and check in time to location and check out time.

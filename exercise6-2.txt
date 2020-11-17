@@ -1,0 +1,1 @@
+For the sport table the functional dependency is  from name and gender to season.
