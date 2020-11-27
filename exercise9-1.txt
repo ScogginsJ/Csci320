@@ -1,0 +1,44 @@
+mysql> select student.first_name, student.last_name, purpose from student join visit2nf on student.email = visit2nf.email;
++------------+-----------+-------------------------+
+| first_name | last_name | purpose                 |
++------------+-----------+-------------------------+
+| Alice      | Albert    | Study hall              |
+| Bob        | Booth     | study hall              |
+| Charlie    | Cadillac  | baseball meeting        |
+| Charlie    | Cadillac  | get form signature      |
+| Debbie     | Davis     | Tour of learning center |
+| Debbie     | Davis     | Help with paper         |
+| Debbie     | Davis     | MATH 101                |
+| Eric       | Elkins    | Team Meeting            |
+| Frank      | Forest    | math help               |
+| Frank      | Forest    | math help               |
+| Gary       | Gatehouse | study hall              |
+| Gary       | Gatehouse | study hall              |
+| Hannah     | Hermanson | study hall              |
+| Irving     | Icehouse  | Meet SLP instructor     |
++------------+-----------+-------------------------+
+14 rows in set (0.00 sec)
+
+mysql> notee
+mysql> select student.first_name, student.last_name, purpose from student join visit2nf on student.email = visit2nf.email order by last_name;
++------------+-----------+-------------------------+
+| first_name | last_name | purpose                 |
++------------+-----------+-------------------------+
+| Alice      | Albert    | Study hall              |
+| Bob        | Booth     | study hall              |
+| Charlie    | Cadillac  | baseball meeting        |
+| Charlie    | Cadillac  | get form signature      |
+| Debbie     | Davis     | Tour of learning center |
+| Debbie     | Davis     | Help with paper         |
+| Debbie     | Davis     | MATH 101                |
+| Eric       | Elkins    | Team Meeting            |
+| Frank      | Forest    | math help               |
+| Frank      | Forest    | math help               |
+| Gary       | Gatehouse | study hall              |
+| Gary       | Gatehouse | study hall              |
+| Hannah     | Hermanson | study hall              |
+| Irving     | Icehouse  | Meet SLP instructor     |
++------------+-----------+-------------------------+
+14 rows in set (0.00 sec)
+
+mysql> notee

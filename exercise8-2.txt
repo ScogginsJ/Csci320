@@ -1,0 +1,1 @@
+yes because every functional dependency determines the others and the printer table is only 2 colums so it is impossible to has a transitive conflict.

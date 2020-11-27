@@ -1,0 +1,6 @@
+visit2nf is in third normal form due to there not being a transitive property between any columns
+the student table is in third normal form as well for because student email determines the whole table
+Major only has one column so therefore it cannot validate any rules
+for the sport table the key determines the season therefore it is also in 3nf
+the student_major table is and student_sport are both in the 3nf as well because all the columns are part of the key
+as part of the reading we made the changes necessary to the computer and printer table to make them both be in the third normal form

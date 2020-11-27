@@ -1,0 +1,2 @@
+because it is being set up to be a parent form since it is storing the information only relvant to the student
+and not any the visit information.

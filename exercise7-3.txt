@@ -1,0 +1,3 @@
+If we only have one location to sign in then that could be a second candidate key because only one
+person can check in at any given time. however if there is more than one way or terminal to check in
+or out with then even though highly unlikely 2 people could share the same time

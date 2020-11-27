@@ -1,0 +1,52 @@
+mysql> select * from staff
+    -> ;
++------------+------------+----------------------+--------------------+-------------------+----------------+
+| first_name | last_name  | email                | assistant_email    | slp_instructor_yn | location       |
++------------+------------+----------------------+--------------------+-------------------+----------------+
+| Chris      | Calendar   | ccalendar@dewv.net   | ccalendar@dewv.net | Y                 | Albert Hall    |
+| Edna       | Editor     | eeditor@dewv.net     | gguardian@dewv.net | N                 | Writing Center |
+| Greg       | Guardian   | gguardian@dewv.net   | gguardian@dewv.net | N                 | Writing Center |
+| Sam        | Studybuddy | sstudybuddy@dewv.net | ccalendar@dewv.net | Y                 | Albert Hall    |
+| Terry      | Tutor      | ttutor@dewv.net      | ccalendar@dewv.net | Y                 | Albert Hall    |
++------------+------------+----------------------+--------------------+-------------------+----------------+
+5 rows in set (0.01 sec)
+
+mysql> create table location(
+    -> name varchar(15) NOT NULL,
+    -> assistant varchar(128) NOT NULL,
+    -> constraint primary key(name)
+    -> );
+ERROR 1046 (3D000): No database selected
+mysql> use learning_center
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+mysql> create table location( name varchar(15) NOT NULL, assistant varchar(128) NOT NULL, constraint primary key(name) );
+Query OK, 0 rows affected (0.20 sec)
+
+mysql> insert into location (name, assistant) values
+    -> ('Albert Hall', 'ccalendar@dewv.net'),
+    -> ('Writing Center', 'ggaurdian@dewv.net')
+    -> ;
+Query OK, 2 rows affected (0.05 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+mysql> alter table staff drop column assistant_email;
+Query OK, 0 rows affected (0.59 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> select * from staff
+    -> ;
++------------+------------+----------------------+-------------------+----------------+
+| first_name | last_name  | email                | slp_instructor_yn | location       |
++------------+------------+----------------------+-------------------+----------------+
+| Chris      | Calendar   | ccalendar@dewv.net   | Y                 | Albert Hall    |
+| Edna       | Editor     | eeditor@dewv.net     | N                 | Writing Center |
+| Greg       | Guardian   | gguardian@dewv.net   | N                 | Writing Center |
+| Sam        | Studybuddy | sstudybuddy@dewv.net | Y                 | Albert Hall    |
+| Terry      | Tutor      | ttutor@dewv.net      | Y                 | Albert Hall    |
++------------+------------+----------------------+-------------------+----------------+
+5 rows in set (0.00 sec)
+
+mysql> notee

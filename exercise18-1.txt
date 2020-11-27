@@ -1,0 +1,119 @@
+mysql> start transaction;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> delete from student_major where major_name = 'Accounting';
+ERROR 1046 (3D000): No database selected
+mysql> use learning_center
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+mysql> delete from student_major where major_name = 'Accounting';
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> delete from major where name = 'Accounting';
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select * from major;
++-------------------------------+
+| name                          |
++-------------------------------+
+| Adventure Recreation          |
+| Appalachian Studies           |
+| Art                           |
+| Biology                       |
+| Business                      |
+| Chemistry                     |
+| Child and Family Studies      |
+| Computer Science              |
+| Criminal Justice              |
+| Criminology                   |
+| Design and Technical Theatre  |
+| Early Childhood Education     |
+| Economics                     |
+| Education                     |
+| English                       |
+| Environmental Science         |
+| Exercise Science              |
+| Finance                       |
+| History                       |
+| Hospitality Management        |
+| Management                    |
+| Marketing                     |
+| Math                          |
+| Music                         |
+| Nursing                       |
+| Philosophy                    |
+| Physical Education            |
+| Political Science             |
+| Pre-Dental                    |
+| Pre-Law                       |
+| Pre-Medical                   |
+| Pre-Ministerial               |
+| Pre-Pharmacy                  |
+| Pre-Physical Therapy          |
+| Pre-Veterinary                |
+| Psychology and Human Services |
+| Religion and Philosophy       |
+| Sociology                     |
+| Sport Management              |
+| Sustainability Studies        |
+| Theatre Arts                  |
+| Undecided                     |
++-------------------------------+
+42 rows in set (0.00 sec)
+
+mysql> rollback;
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> select * from major;
++-------------------------------+
+| name                          |
++-------------------------------+
+| Accounting                    |
+| Adventure Recreation          |
+| Appalachian Studies           |
+| Art                           |
+| Biology                       |
+| Business                      |
+| Chemistry                     |
+| Child and Family Studies      |
+| Computer Science              |
+| Criminal Justice              |
+| Criminology                   |
+| Design and Technical Theatre  |
+| Early Childhood Education     |
+| Economics                     |
+| Education                     |
+| English                       |
+| Environmental Science         |
+| Exercise Science              |
+| Finance                       |
+| History                       |
+| Hospitality Management        |
+| Management                    |
+| Marketing                     |
+| Math                          |
+| Music                         |
+| Nursing                       |
+| Philosophy                    |
+| Physical Education            |
+| Political Science             |
+| Pre-Dental                    |
+| Pre-Law                       |
+| Pre-Medical                   |
+| Pre-Ministerial               |
+| Pre-Pharmacy                  |
+| Pre-Physical Therapy          |
+| Pre-Veterinary                |
+| Psychology and Human Services |
+| Religion and Philosophy       |
+| Sociology                     |
+| Sport Management              |
+| Sustainability Studies        |
+| Theatre Arts                  |
+| Undecided                     |
++-------------------------------+
+43 rows in set (0.00 sec)
+
+mysql> notee

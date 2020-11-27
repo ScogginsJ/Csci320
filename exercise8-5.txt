@@ -1,0 +1,1 @@
+All the tables are in BCNF because all determinates are candidate keys

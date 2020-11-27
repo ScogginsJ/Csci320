@@ -1,0 +1,6 @@
+mysql> -- Create an account with username = commuter and password = more parking
+mysql> -- This account can only sign in from localhost (the MySQL server).
+mysql> create user 'commuter'@'localhost' identified by 'more parking';
+Query OK, 0 rows affected (0.06 sec)
+
+mysql> notee

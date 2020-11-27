@@ -1,0 +1,7 @@
+the sport table satisfies 2NF. This is a simple example because the table 
+has only one non-key column and only one candidate key as stated in the reading
+major table only has one colum so it cannot be 2nf
+student_major is not either because it has emails assigned to multiple majors
+because some students are dual majors
+student_sport is in the 2NF because based of the email and sport you will 
+learn the gender of the sport and student

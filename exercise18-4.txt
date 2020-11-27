@@ -1,0 +1,55 @@
+mysql> start transaction;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> drop table visit2nf;
+Query OK, 0 rows affected (0.19 sec)
+
+mysql> show tables
+    -> ;
++--------------------+
+| Tables_in_practice |
++--------------------+
+| athletes           |
+| commuter           |
+| computer           |
+| location           |
+| major              |
+| major_view         |
+| printer            |
+| sport              |
+| sport_roster       |
+| staff              |
+| student            |
+| student_major      |
+| student_sport      |
+| visit              |
+| visit1nf           |
++--------------------+
+15 rows in set (0.01 sec)
+
+mysql> rollback;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> show tables;
++--------------------+
+| Tables_in_practice |
++--------------------+
+| athletes           |
+| commuter           |
+| computer           |
+| location           |
+| major              |
+| major_view         |
+| printer            |
+| sport              |
+| sport_roster       |
+| staff              |
+| student            |
+| student_major      |
+| student_sport      |
+| visit              |
+| visit1nf           |
++--------------------+
+15 rows in set (0.00 sec)
+
+mysql> notee

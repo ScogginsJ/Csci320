@@ -1,0 +1,66 @@
+mysql> mysql> alter table student_sport
+    ->     -> add constraint foreign key(sport_name, gender) references sport(name, gender);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'mysql> alter table student_sport
+    -> add constraint foreign key(sport_name, g' at line 1
+mysql> mysql> alter table student_sport add constraint foreign key(sport_name, gender) references sport(name, gender);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'mysql> alter table student_sport add constraint foreign key(sport_name, gender) ' at line 1
+mysql> alter table student_sport add constraint foreign key(sport_name, gender) references sport(name, gender);
+ERROR 1452 (23000): Cannot add or update a child row: a foreign key constraint fails (`learning_center`.`#sql-139_9`, CONSTRAINT `student_sport_ibfk_1` FOREIGN KEY (`sport_name`, `gender`) REFERENCES `sport` (`name`, `gender`))
+mysql> alter table student_sport add constraint foreign key(sport_name, season) references sport(name, season);
+ERROR 1072 (42000): Key column 'season' doesn't exist in table
+mysql> select * from student_major
+    -> ;
++---------------------+------------------+
+| email               | major_name       |
++---------------------+------------------+
+| aabert@dewv.net     | Computer Science |
+| bbooth@dewv.net     | Computer Science |
+| bbooth@dewv.net     | Philosophy       |
+| ccadillac@dewv.net  | English          |
+| ddavis@dewv.net     | English          |
+| ddavis@dewv.net     | Philosophy       |
+| eelkins@dewv.net    | Biology          |
+| ggatehouse@dewv.net | Biology          |
+| ggatehouse@dewv.net | Computer Science |
+| hhermanson@dewv.net | Chemistry        |
+| iicehouse@dewv.net  | Chemistry        |
++---------------------+------------------+
+11 rows in set (0.01 sec)
+
+mysql> select * from student_sport;
++--------------------+------------+--------+
+| email              | sport_name | gender |
++--------------------+------------+--------+
+| bbooth@dewv.net    | Golf       | Men    |
+| bgates@dewv.net    | Basketball | Chess  |
+| bgates@dewv.net    | Football   | Male   |
+| ccadillac@dewv.net | Baseball   | Men    |
+| ccadillac@dewv.net | Soccer     | Men    |
+| ddavis@dewv.net    | Soccer     | Women  |
+| ddavis@dewv.net    | Softball   | Women  |
+| eelkins@dewv.net   | Baseball   | Men    |
++--------------------+------------+--------+
+8 rows in set (0.00 sec)
+
+mysql> alter table student_sport add constraint foreign key(email, sport_name) references sport(name, gender);
+ERROR 1452 (23000): Cannot add or update a child row: a foreign key constraint fails (`learning_center`.`#sql-139_9`, CONSTRAINT `student_sport_ibfk_1` FOREIGN KEY (`email`, `sport_name`) REFERENCES `sport` (`name`, `gender`))
+mysql> delete from student where email = 'bgates@dewv.net';
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> delete from student_sport where email = 'bgates@dewv.net';
+Query OK, 2 rows affected (0.03 sec)
+
+mysql> alter table student_sport add constraint foreign key(email, sport_name) references sport(name, gender);
+ERROR 1452 (23000): Cannot add or update a child row: a foreign key constraint fails (`learning_center`.`#sql-139_9`, CONSTRAINT `student_sport_ibfk_1` FOREIGN KEY (`email`, `sport_name`) REFERENCES `sport` (`name`, `gender`))
+mysql> alter table student_sport add constraint foreign key(sport_name, gender) references sport(name, gender);
+Query OK, 6 rows affected (0.55 sec)
+Records: 6  Duplicates: 0  Warnings: 0
+
+mysql> mysql> alter table student_major
+    -> add constraint foreign key(major_name, email) references major(name);
+ERROR 1239 (42000): Incorrect foreign key definition for 'foreign key without name': Key reference and table reference don't match
+mysql> alter table student_major add constraint foreign key(major_name) references major(name);
+Query OK, 11 rows affected (0.71 sec)
+Records: 11  Duplicates: 0  Warnings: 0
+
+mysql> notee

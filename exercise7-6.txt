@@ -1,0 +1,8 @@
+mysql> insert into student
+    -> (first_name, last_name, email, academic_rank, residential_status,
+    -> slp_instructor_first_name, slp_instructor_last_name)
+    -> select first_name, last_name, email, academic_rank, residential_status,
+    -> slp_instructor_first_name, slp_instructor_last_name
+    -> from visit1nf;
+ERROR 1062 (23000): Duplicate entry 'aalbert@dewv.net' for key 'student.PRIMARY'
+mysql> notee

@@ -1,0 +1,9 @@
+mysql> select location, count(*) from staff where slp_instructor_yn <> 'N' group by location;
++-------------+----------+
+| location    | count(*) |
++-------------+----------+
+| Albert Hall |        3 |
++-------------+----------+
+1 row in set (0.01 sec)
+
+mysql> notee

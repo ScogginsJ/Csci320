@@ -1,0 +1,27 @@
+mysql> select sport.name, sport.gender, student.first_name, student.last_name  from sport left outer join student_sport on sport.name = student_sport.sport_name and  sport.gender = student_sport.gender left outer join student on student_sport.email = student.email;
++-----------------+--------+------------+-----------+
+| name            | gender | first_name | last_name |
++-----------------+--------+------------+-----------+
+| Baseball        | Men    | Charlie    | Cadillac  |
+| Baseball        | Men    | Eric       | Elkins    |
+| Basketball      | Men    | NULL       | NULL      |
+| Basketball      | Women  | NULL       | NULL      |
+| Cross country   | Men    | NULL       | NULL      |
+| Cross country   | Women  | NULL       | NULL      |
+| Golf            | Men    | Bob        | Booth     |
+| Lacrosse        | Men    | NULL       | NULL      |
+| Lacrosse        | Women  | NULL       | NULL      |
+| Soccer          | Men    | Charlie    | Cadillac  |
+| Soccer          | Women  | Debbie     | Davis     |
+| Softball        | Women  | Debbie     | Davis     |
+| Swimming        | Men    | NULL       | NULL      |
+| Swimming        | Women  | NULL       | NULL      |
+| Tennis          | Men    | NULL       | NULL      |
+| Tennis          | Women  | NULL       | NULL      |
+| Track and field | Men    | NULL       | NULL      |
+| Track and field | Women  | NULL       | NULL      |
+| Volleyball      | Women  | NULL       | NULL      |
++-----------------+--------+------------+-----------+
+19 rows in set (0.10 sec)
+
+mysql> notee

@@ -1,0 +1,14 @@
+mysql> create index student_last_name on visit2nf(last_name);
+ERROR 1072 (42000): Key column 'last_name' doesn't exist in table
+mysql> notee
+mysql> create index student_check_out_time on visit2nf(check_out_time);
+Query OK, 0 rows affected (0.24 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> motee
+    -> notee
+    -> 
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'motee
+notee' at line 1
+mysql> notee

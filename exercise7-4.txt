@@ -1,0 +1,1 @@
+It should be deleted and removed from both not just set to null

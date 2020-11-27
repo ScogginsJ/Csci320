@@ -1,0 +1,16 @@
+mysql> 
+mysql> select name from sport where gender = 'Women'  and name in (select name from sport where gender = 'Men');
++-----------------+
+| name            |
++-----------------+
+| Basketball      |
+| Cross country   |
+| Lacrosse        |
+| Soccer          |
+| Swimming        |
+| Tennis          |
+| Track and field |
++-----------------+
+7 rows in set (0.00 sec)
+
+mysql> notee

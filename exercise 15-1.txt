@@ -1,0 +1,14 @@
+mysql> create view commuter as 
+    -> select first_name, last_name, email, academic_rank, residential_status 
+    -> from student where student.resisdential_status = 'Off campus';
+ERROR 1054 (42S22): Unknown column 'student.resisdential_status' in 'where clause'
+mysql> create view commuter as 
+    -> select first_name, last_name, email, academic_rank, residential_status 
+    -> from student where resisdential_status = 'Off campus';
+ERROR 1054 (42S22): Unknown column 'resisdential_status' in 'where clause'
+mysql> create view commuter as 
+    -> select first_name, last_name, email, academic_rank, residential_status 
+    -> from student where residential_status = 'Off campus';
+Query OK, 0 rows affected (0.06 sec)
+
+mysql> notee

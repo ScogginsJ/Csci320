@@ -1,0 +1,40 @@
+mysql> select student.first_name, student.last_name, purpose, purposed_achieved from student join visit2nf on student.email = visit2nf.email where purpose_achieved = 'Y';
+ERROR 1054 (42S22): Unknown column 'purposed_achieved' in 'field list'
+mysql> select student.first_name, student.last_name, purpose, purpose_achieved from student join visit2nf on student.email = visit2nf.email where purpose_achieved = 'Y';
++------------+-----------+-------------------------+------------------+
+| first_name | last_name | purpose                 | purpose_achieved |
++------------+-----------+-------------------------+------------------+
+| Alice      | Albert    | Study hall              | Y                |
+| Bob        | Booth     | study hall              | Y                |
+| Charlie    | Cadillac  | get form signature      | Y                |
+| Debbie     | Davis     | Tour of learning center | Y                |
+| Debbie     | Davis     | Help with paper         | Y                |
+| Frank      | Forest    | math help               | Y                |
+| Frank      | Forest    | math help               | Y                |
+| Gary       | Gatehouse | study hall              | Y                |
+| Gary       | Gatehouse | study hall              | Y                |
+| Hannah     | Hermanson | study hall              | Y                |
+| Irving     | Icehouse  | Meet SLP instructor     | Y                |
++------------+-----------+-------------------------+------------------+
+11 rows in set (0.00 sec)
+
+mysql> notee
+mysql> select student.first_name, student.last_name, purpose, purpose_achieved from student join visit2nf on student.email = visit2nf.email where purpose_achieved = 'Y' order by last_name;
++------------+-----------+-------------------------+------------------+
+| first_name | last_name | purpose                 | purpose_achieved |
++------------+-----------+-------------------------+------------------+
+| Alice      | Albert    | Study hall              | Y                |
+| Bob        | Booth     | study hall              | Y                |
+| Charlie    | Cadillac  | get form signature      | Y                |
+| Debbie     | Davis     | Tour of learning center | Y                |
+| Debbie     | Davis     | Help with paper         | Y                |
+| Frank      | Forest    | math help               | Y                |
+| Frank      | Forest    | math help               | Y                |
+| Gary       | Gatehouse | study hall              | Y                |
+| Gary       | Gatehouse | study hall              | Y                |
+| Hannah     | Hermanson | study hall              | Y                |
+| Irving     | Icehouse  | Meet SLP instructor     | Y                |
++------------+-----------+-------------------------+------------------+
+11 rows in set (0.00 sec)
+
+mysql> notee
