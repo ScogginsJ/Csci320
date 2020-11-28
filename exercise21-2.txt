@@ -1,0 +1,6 @@
+> db.students.find( { $or:[{academic_rank: 'Freshmen'}, {academic_rank: 'Sophomore'}]}, {first_name: 1, la
+st_name: -1 }).sort({first_name: 1, last_name: -1})
+{ "_id" : 6, "first_name" : "Debra", "last_name" : "Davis" }
+{ "_id" : 1, "first_name" : "Gary", "last_name" : "Gatehouse" }
+{ "_id" : 3, "first_name" : "Irving", "last_name" : "Icehouse" }
+> 

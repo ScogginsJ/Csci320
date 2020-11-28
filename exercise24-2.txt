@@ -1,0 +1,143 @@
+> db.visits.insertMany([
+...    {
+...      _id: 9,
+...      students_id: 9,
+...      check_in_time: "2016-08-30 16:55:55",
+...      check_out_time: "2016-08-30 16:59:44",
+...      location: "Albert Hall",
+...      purpose_achieved: "Y",
+...    },
+...    {
+...      _id: 1,
+...      students_id: 1,
+...      check_in_time: "2016-08-31 14:36:56",
+...      check_out_time: "2016-08-31 15:30:00",
+...      location: "Albert Hall",
+...      purpose: "Study hall",
+...      purpose_achieved: "Y",
+...    },
+... {
+...      _id: 1,
+...      students_id: 1,
+...      check_in_time: "016-08-30 14:35:55",
+...      check_out_time: "2016-08-30 15:53:44",
+...      location: "Albert Hall",
+...      purpose: "Study hall",
+...      purpose_achieved: "Y",
+... comments: "New year, fresh start!",
+...    },
+...    {
+...      _id: 7,
+...      students_id: 7,
+...      check_in_time: "2016-08-30 16:49:59",
+...      check_out_time: "2016-08-30 16:56:46",
+...      location: "Albert Hall",
+...      purpose: "Team Meeting",
+...      purpose_achieved: "N",
+... comments: "Sorry coach i had wrong time. my bad",
+...    },
+... {
+...      _id: 8,
+...      students_id: 8,
+...      check_in_time: "2016-08-30 16:59:05",
+...      check_out_time: "22016-08-30 17:03:40",
+...      location: "Albert Hall",
+...      purpose: "math help",
+...      purpose_achieved: "Y",
+... tutoring: "Math 101",
+...    },
+...    {
+...      _id: 6,
+...      students_id: 6,
+...      check_in_time: "2016-08-31 16:00:06",
+...      location: "Albert Hall",
+...      purpose: "Math 101",
+...    },
+... {
+...      _id: 6,
+...      students_id: 6,
+...      check_in_time: "016-08-31 13:36:36",
+...      check_out_time: "2016-08-31 14:47:44",
+...      location: "Writing Center",
+...      purpose: "Help with paper",
+... purpose_achieved: "Y",
+...    },
+...    {
+...      _id: 2,
+...      students_id: 2,
+...      check_in_time: "2016-08-31 11:51:15",
+...      check_out_time: "2016-08-31 11:53:44",
+...      location: "Albert Hall",
+...      purpose: "get form signature",
+...      purpose_achieved: "Y",
+...    },
+... {
+...      _id: 5,
+...      students_id: 5,
+...      check_in_time: "2016-08-30 16:44:54",
+...      check_out_time: "2016-08-30 16:53:44",
+...      location: "Albert Hall",
+...      purpose: "Study hall",
+...      purpose_achieved: "Y",
+... comments: "New year, fresh start!",
+...    },
+...    {
+...      _id: 4,
+...      students_id: 4,
+...      check_in_time: "2016-08-30 16:15:05",
+...      check_out_time: "2016-08-30 16:50:04",
+...      location: "Albert Hall",
+...      purpose: "Study hall",
+...      purpose_achieved: "Y",
+...    },
+... {
+...      _id: 8,
+...      students_id: 8,
+...      check_in_time: "2016-08-31 11:19:15",
+...      check_out_time: "2016-08-31 12:23:22",
+...      location: "Albert Hall",
+...      purpose: "math help",
+...      purpose_achieved: "Y",
+... tutoring: "Math 101",
+...    },
+...    {
+...      _id: 6,
+...      students_id: 6,
+...      check_in_time: "2016-08-30 16:36:56",
+...      check_out_time: "2016-08-30 17:57:47",
+...      location: "Albert Hall",
+...      purpose: "Tour of the learning center",
+...      purpose_achieved: "Y",
+...    },
+...  ]);
+2020-11-28T03:46:34.931+0000 E QUERY    [js] BulkWriteError: write error at item 1 in bulk operation :
+BulkWriteError({
+        "writeErrors" : [
+                {
+                        "index" : 1,
+                        "code" : 11000,
+                        "errmsg" : "E11000 duplicate key error collection: test.visits index: _id_ dup key: { : 1.0 }",
+                        "op" : {
+                                "_id" : 1,
+                                "students_id" : 1,
+                                "check_in_time" : "2016-08-31 14:36:56",
+                                "check_out_time" : "2016-08-31 15:30:00",
+                                "location" : "Albert Hall",
+                                "purpose" : "Study hall",
+                                "purpose_achieved" : "Y"
+                        }
+                }
+        ],
+        "writeConcernErrors" : [ ],
+        "nInserted" : 1,
+        "nUpserted" : 0,
+        "nMatched" : 0,
+        "nModified" : 0,
+        "nRemoved" : 0,
+        "upserted" : [ ]
+})
+BulkWriteError@src/mongo/shell/bulk_api.js:369:48
+BulkWriteResult/this.toError@src/mongo/shell/bulk_api.js:333:24
+Bulk/this.execute@src/mongo/shell/bulk_api.js:1173:1
+DBCollection.prototype.insertMany@src/mongo/shell/crud_api.js:314:5
+@(shell):1:1

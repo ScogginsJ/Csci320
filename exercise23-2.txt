@@ -1,0 +1,10 @@
+> db.temp_students.deleteMany( { academic_rank: 'Senior'})
+{ "acknowledged" : true, "deletedCount" : 2 }
+> db.temp_students.deleteMany( { academic_rank: 'Junior'})
+{ "acknowledged" : true, "deletedCount" : 2 }
+> db.temp_students.deleteMany( { academic_rank: 'Freshman'})
+{ "acknowledged" : true, "deletedCount" : 0 }
+> db.temp_students.deleteMany( { academic_rank: 'Freshmen'})
+{ "acknowledged" : true, "deletedCount" : 0 }
+db.temp_students.find({} )
+> 
