@@ -1,0 +1,1 @@
+db.visits.aggregate([{ $match: { location: {$eq: 'Albert Hall"}}},{ $group: {_id: '$students_id', visits: {$sum: 1}}},{ $match: {visits: { $gt: 1}}}])
